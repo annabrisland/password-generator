@@ -97,31 +97,31 @@ var specChar;
 
 // Function to prompt user for password options
 function getPasswordOptions() {
-// Write prompt to ask for length
-passLength = prompt("What length should the password be? Please choose a number between 8 and 128.");
+  // Write prompt to ask for length
+  passLength = prompt("What length should the password be? Please choose a number between 8 and 128.");
 
-// Write Confirm to ask what to include
-lowerCase = confirm("Should it include lowercase characters?");
-upperCase = confirm("Should it include uppercase characters?");
-num = confirm("Should it include numeric characters?");
-specChar = confirm("Should it include special characters ($@%&*,)?");
+  // Write Confirm to ask what to include
+  lowerCase = confirm("Should it include lowercase characters?");
+  upperCase = confirm("Should it include uppercase characters?");
+  num = confirm("Should it include numeric characters?");
+  specChar = confirm("Should it include special characters ($@%&*,)?");
 
-// Validate and confirm length and at least one type is selected
-if (passLength < 8 | passLength > 128) {
-  alert("This length is not between 8 and 128. Randomly choosing an appropriate length.");
-  passLength = Math.floor(Math.random() * 121 + 8);
-};
+  // Validate and confirm length and at least one type is selected
+  if (passLength < 8 | passLength > 128) {
+    alert("This length is not between 8 and 128. Randomly choosing an appropriate length.");
+    passLength = Math.floor(Math.random() * 121 + 8);
+  };
 
- if (!lowerCase && !upperCase && !num && !specChar) {
-  alert("At least one criteria must be chosen. Generating a password with the minimum requirement.");
-  lowerCase = true;
- };
+  if (!lowerCase && !upperCase && !num && !specChar) {
+    alert("At least one criteria must be chosen. Generating a password with the minimum requirement.");
+    lowerCase = true;
+  };
 }
 
 // Function for getting a random element from an array
 function getRandom(arr) {
-// for each get random element -> math.random
-
+  randomIndex = Math.floor(Math.random() * arr.length);
+  return arr[randomIndex];
 }
 
 // Function to generate password with user input
