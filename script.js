@@ -126,8 +126,29 @@ function getRandom(arr) {
 
 // Function to generate password with user input
 function generatePassword() {
+  // Choose elements from each required criteria array for password length
+  var passArr = [];
 
+  while (passArr.length < passLength) {
+    if (lowerCase && (passArr.length < passLength)) {
+      i = passArr.push(getRandom(lowerCasedCharacters));
+    };
+    if (upperCase && (passArr.length < passLength)) {
+      i = passArr.push(getRandom(upperCasedCharacters));
+    };
+    if (num && (passArr.length < passLength)) {
+      i = passArr.push(getRandom(numericCharacters));
+    };
+    if (specChar && (passArr.length < passLength)) {
+      i = passArr.push(getRandom(specialCharacters));
+    };
+  };
+  
+  // Convert array into string
+  return passArr.join("");
 }
+
+getPasswordOptions()
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
